@@ -7,11 +7,12 @@ RUN apt-get update && apt-get install -y \
     zip \
     curl \
     libzip-dev \
+    libpq-dev \
     nodejs \
     npm
 
 # PHP extensions
-RUN docker-php-ext-install pdo pdo_mysql zip
+RUN docker-php-ext-install pdo pdo_mysql pdo_pgsql zip
 
 # Enable Apache rewrite module
 RUN a2enmod rewrite
