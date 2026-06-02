@@ -41,8 +41,10 @@ RUN npm install
 RUN npm run build
 
 # Laravel setup
+# Laravel setup
 RUN cp .env.example .env || true
 RUN php artisan key:generate --force || true
+RUN php artisan migrate --force || true
 
 # Permissions
 RUN chown -R www-data:www-data storage bootstrap/cache
